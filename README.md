@@ -19,14 +19,24 @@
 </p>
 
 ## Updates
+- [2026/02/20] Smaller UFM initialized from DINOv2 weights, faster at similar performance.
 - [2025/10/21] Complete training and most data processing scripts. (branch: train)
 - [2025/10/20] Benchmark & data script for primary results. (branch: benchmark)
 - [2025/10/08] Released 980 resolution models.
 - [2025/06/10] Initial release of model checkpoint and inference code.
 
 ## Stay Tuned for the Upcoming Updates!
-- Training and benchmarking code for all results presented in the paper.
 - UFM-Tiny for real-time applications such as robotics.
+
+## Models
+
+| Checkpoint | Typical Runtime (ms, RTX 5090) | Parameters | HuggingFace |
+|---|---|---|---|
+| UFM-Base | 33  | 0.4B | [infinity1096/UFM-Base](https://huggingface.co/infinity1096/UFM-Base) |
+| UFM-Refine | 44 | 0.4B | [infinity1096/UFM-Refine](https://huggingface.co/infinity1096/UFM-Refine) |
+| UFM-Base-980 | 77 | 0.4B | [infinity1096/UFM-Base-980](https://huggingface.co/infinity1096/UFM-Base-980) |
+| UFM-Refine-980 | 96 | 0.4B | [infinity1096/UFM-Refine-980](https://huggingface.co/infinity1096/UFM-Refine-980) |
+| UFM-Base-DINOv2L-init | 28 | 0.3B | [infinity1096/UFM-Base-DINOv2L-init](https://huggingface.co/infinity1096/UFM-Base-DINOv2L-init) |
 
 ## Overview
 
@@ -115,7 +125,8 @@ model = UniFlowMatchConfidence.from_pretrained("infinity1096/UFM-Base")
 from uniflowmatch.models.ufm import UniFlowMatchClassificationRefinement
 model = UniFlowMatchClassificationRefinement.from_pretrained("infinity1096/UFM-Refine")
 
-# High resolution model can be loaded via "infinity1096/UFM-Base-980" and "infinity1096/UFM-Refine-980"
+# Choose from
+# UFM-Base, UFM-Refine, UFM-Base-980, UFM-Refine-980, UFM-Base-DINOv2L-init
 
 # Set the model to evaluation mode
 model.eval()
