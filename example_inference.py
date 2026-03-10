@@ -15,7 +15,9 @@ import flow_vis
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "UniCeption"))
 from uniflowmatch.models.ufm import UniFlowMatchClassificationRefinement, UniFlowMatchConfidence
 from uniflowmatch.utils.viz import warp_image_with_flow
 
